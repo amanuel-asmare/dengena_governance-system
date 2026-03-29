@@ -1,4 +1,4 @@
-package main.java.com.amanuel.governance_service.repository;
+package com.example.governance_service.repository;
 
 import com.example.governance_service.model.Policy;
 import org.springframework.data.jpa.repository.JpaRepository;

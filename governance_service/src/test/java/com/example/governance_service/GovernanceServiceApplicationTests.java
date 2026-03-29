@@ -1,4 +1,4 @@
-package com.amanuel.governance_service;
+package com.example.governance_service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

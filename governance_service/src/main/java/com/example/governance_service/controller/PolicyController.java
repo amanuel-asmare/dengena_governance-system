@@ -1,5 +1,4 @@
-package main.java.com.amanuel.governance_service.controller;
-
+package com.example.governance_service.controller;
 
 import com.example.governance_service.model.Policy;
 import com.example.governance_service.service.PolicyService;

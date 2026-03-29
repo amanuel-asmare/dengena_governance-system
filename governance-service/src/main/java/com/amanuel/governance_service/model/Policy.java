@@ -1,4 +1,4 @@
-package com.amanuel.governance_service.model;
+package main.java.com.amanuel.governance_service.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

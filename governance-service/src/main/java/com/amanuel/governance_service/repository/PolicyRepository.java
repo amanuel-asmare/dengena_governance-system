@@ -1,0 +1,9 @@
+package main.java.com.amanuel.governance_service.repository;
+
+import com.example.governance_service.model.Policy;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface PolicyRepository extends JpaRepository<Policy, Long> {
+}

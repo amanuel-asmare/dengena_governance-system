@@ -12,7 +12,7 @@ The system consists of two primary services:
 - **ORM**: Spring Data JPA / Hibernate
 - **Documentation**: Swagger UI (OpenAPI 3.0)
 - **Tooling**: Lombok, Maven
-  ## System Architecture
+ ## System Architecture
 The system follows an asynchronous event-driven pattern:
   1. Client sends a request to the Governance Service.
   2. Governance Service updates the policy_db and publishes a message to the policy-topic in Kafka.
@@ -28,7 +28,7 @@ Create two separate databases in PostgreSQL:
  ```cmd
 SQLCREATE DATABASE policy_db;
 CREATE DATABASE audit_db;
-
+```
 ### Running the System
 #### 1. Start Kafka:
 Ensure Zookeeper and Kafka Broker are running on localhost:9092.
@@ -36,12 +36,12 @@ Ensure Zookeeper and Kafka Broker are running on localhost:9092.
  ```cmd
 cd governance-service
 mvn spring-boot:run
-
+```
 ### 3. Audit Service:
  ```cmd
 cd audit-service
 mvn spring-boot:run
-
+```
 ## API Endpoints
 ### Governance Service (Port 8080)
 | Method   | Endpoint                    | Description                            |

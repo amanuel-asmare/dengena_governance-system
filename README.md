@@ -60,10 +60,10 @@ StatesThe system enforces the following state transitions:
 DRAFT ➡️ PENDING_APPROVAL ➡️ APPROVED or REJECTED
 ## Audit Event Mapping
 Every action in the Governance Service triggers a specific event type in the Audit Service:
-Policy Created → POLICY_CREATION
-Policy Submitted → POLICY_SUBMISSION
-Policy Approved → POLICY_APPROVAL
-Policy Rejected → POLICY_REJECTION
+- Policy Created → POLICY_CREATION
+- Policy Submitted → POLICY_SUBMISSION
+- Policy Approved → POLICY_APPROVAL
+- Policy Rejected → POLICY_REJECTION
 ## Evaluation Criteria Checklist 
 [x] Functional Requirements (Create, Submit, Approve, Reject).
 [x] Event-Driven Architecture using Kafka.

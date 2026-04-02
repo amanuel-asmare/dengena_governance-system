@@ -65,8 +65,8 @@ Every action in the Governance Service triggers a specific event type in the Aud
 - Policy Approved → POLICY_APPROVAL
 - Policy Rejected → POLICY_REJECTION
 ## Evaluation Criteria Checklist 
-[x] Functional Requirements (Create, Submit, Approve, Reject).
-[x] Event-Driven Architecture using Kafka.
+> Functional Requirements (Create, Submit, Approve, Reject).
+>  Event-Driven Architecture using Kafka.
 [x] Data Persistence with PostgreSQL.
 [x] Clean and Modular Architecture.
 [x] Professional Documentation (README).

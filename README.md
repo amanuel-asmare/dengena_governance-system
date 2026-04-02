@@ -4,44 +4,91 @@ This project is a distributed backend system designed to manage governance polic
 The system consists of two primary services:
  - **Governance Service**:Manages policy creation, submissions, and approvals.
  - **Audit Service**:Asynchronously consumes lifecycle events via Kafka and persists them for traceability.
-## Tech Stack
-- **Language**: Java 26 (OpenJDK)
-- **Framework**: Spring Boot 4.0.5
-- **Messaging**: Apache Kafka (Event Broker)
-- **Database**: PostgreSQL (Relational Persistence)
-- **ORM**: Spring Data JPA / Hibernate
-- **Documentation**: Swagger UI (OpenAPI 3.0)
-- **Tooling**: Lombok, Maven
+## Tech Stack & Tools Requirement (Installation Guide)
+To run this project locally, you need to install and configure the following tools:
+
+### 1. Java Development Kit (JDK 26)
+Purpose: The core language environment.
+
+Installation: Download from Oracle or OpenJDK.
+
+Verification: Run java -version in your terminal.
+
+### 2. Apache Kafka Setup (KRaft Mode)
+This project uses Kafka 4.0 in KRaft mode, which does not require a separate Zookeeper instance.
+
+### Installation Steps:
+- Download Kafka 4.0 from kafka.apache.org.
+- Extract the files to C:\kafka..
+
+### 3. PostgreSQL 15+
+- **Purpose**: Relational database for policy and audit persistence.
+
+- **Installation**: Download from postgresql.org.
+
+- **Setup**: Ensure the service is running on port 5432.
+
+- **Database Creation**:
+```cmd
+CREATE DATABASE policy_db;
+CREATE DATABASE audit_db;
+```
+
+### 4. Maven 3.8+
+- **Purpose**: Dependency management and build tool.
+
+- **Installation**: Usually comes bundled with IntelliJ IDEA or download from maven.apache.org.
+
+### 5. Postman
+- **Purpose**: To test the REST API endpoints.
+
+- **Installation**: Download from postman.com.
+
+### 6. IntelliJ IDEA (Recommended)
+- **Purpose**: Integrated Development Environment (IDE) for Java.
  ## System Architecture
 The system follows an asynchronous event-driven pattern:
   1. Client sends a request to the Governance Service.
   2. Governance Service updates the policy_db and publishes a message to the policy-topic in Kafka.
   3.  Audit Service listens to the policy-topic, processes the incoming message, and records the action in the audit_db.
- ## Getting Started
-### Prerequisites
-- Docker (Optional) or Local Installations of:
-  - PostgreSQL 15+
-  - Apache Kafka & Zookeeper
-  - JDK 26
-### Database Setup
-Create two separate databases in PostgreSQL:
- ```cmd
-SQLCREATE DATABASE policy_db;
-CREATE DATABASE audit_db;
+## Execution Steps (How to Run)
+### 1. Clone the Repository:
+```cmd
+git clone <your-repo-url>
 ```
-### Running the System
-#### 1. Start Kafka:
-Ensure Zookeeper and Kafka Broker are running on localhost:9092.
-#### 2. Governance Service:
- ```cmd
-cd governance-service
-mvn spring-boot:run
+### 2. Database Configuration:
+Open src/main/resources/application.properties in both services and update your PostgreSQL username and password:
+```cmd
+spring.datasource.username=your_username
+spring.datasource.password=your_password
 ```
-### 3. Audit Service:
+### 3.  Start Infrastructure:
+ ### Execution Steps (Windows Run Kafka):
+  Open your terminal and run the following commands in order:
+  #### Set Heap Options (Performance):
  ```cmd
-cd audit-service
-mvn spring-boot:run
+  set KAFKA_HEAP_OPTS=-Xmx1G -Xms1G
 ```
+  #### Navigate to Kafka Directory:
+  ```cmd
+  cd C:\kafka
+```
+  #### Format Storage Directory (Run once):
+  This initializes the cluster metadata.
+```cmd
+  .\bin\windows\kafka-storage.bat format -t NbMQyK8UR6yWW_Iu1djUEQ -c .\config\server.properties --standalone
+```
+  #### Start Kafka Server:
+  ```cmd
+  .\bin\windows\kafka-server-start.bat .\config\server.properties
+```
+  The server is now running on localhost:9092 and ready to handle events.
+ 
+ ### Build and Run Applications:
+ 1. **Governance Service**: Run GovernanceServiceApplication.java from your IDE.
+ 2. **Audit Service**: Run AuditServiceApplication.java from your IDE.
+
+    
 ## API Endpoints
 ### Governance Service (Port 8080)
 | Method   | Endpoint                    | Description                            |

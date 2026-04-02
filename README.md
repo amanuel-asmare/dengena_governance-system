@@ -8,11 +8,11 @@ The system consists of two primary services:
 To run this project locally, you need to install and configure the following tools:
 
 ### 1. Java Development Kit (JDK 26)
-Purpose: The core language environment.
+- **Purpose**: The core language environment.
 
-Installation: Download from Oracle or OpenJDK.
+- **Installation**: Download from Oracle or OpenJDK.
 
-Verification: Run java -version in your terminal.
+- **Verification**: Run java -version in your terminal.
 
 ### 2. Apache Kafka Setup (KRaft Mode)
 This project uses Kafka 4.0 in KRaft mode, which does not require a separate Zookeeper instance.
@@ -63,7 +63,7 @@ spring.datasource.username=your_username
 spring.datasource.password=your_password
 ```
 ### 3.  Start Infrastructure:
- ### Execution Steps (Windows Run Kafka):
+ ### Steps (Windows Run Kafka):
   Open your terminal and run the following commands in order:
   #### Set Heap Options (Performance):
  ```cmd
